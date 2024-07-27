@@ -78,5 +78,28 @@ namespace To_Do_List_App
             descriptionTextBox.Text = "";
             isEditing = false;
         }
+
+        private void toDoListView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void toDoListView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach(DataGridViewRow r in toDoListView.Rows)
+            {
+                bool isChecked = Convert.ToBoolean(r.Cells[0].Value);
+                if (isChecked == false)
+                {
+                    r.DefaultCellStyle.BackColor = Color.White;
+                    r.DefaultCellStyle.ForeColor = Color.Black;
+                }
+                else if (isChecked == true)
+                {
+                    r.DefaultCellStyle.BackColor = Color.Green;
+                    r.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }    
+        }
     }
 }

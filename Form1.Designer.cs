@@ -38,63 +38,58 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.toDoListView = new System.Windows.Forms.DataGridView();
+            this.dgvChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.toDoListView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(9, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1844, 117);
+            this.label1.Size = new System.Drawing.Size(922, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "To Do List";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(18, 127);
-            this.titleTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.titleTextBox.Location = new System.Drawing.Point(9, 66);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(1840, 31);
+            this.titleTextBox.Size = new System.Drawing.Size(922, 20);
             this.titleTextBox.TabIndex = 1;
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(18, 221);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.descriptionTextBox.Location = new System.Drawing.Point(9, 115);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(1840, 31);
+            this.descriptionTextBox.Size = new System.Drawing.Size(922, 20);
             this.descriptionTextBox.TabIndex = 2;
             this.descriptionTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 171);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(9, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1558, 44);
+            this.label2.Size = new System.Drawing.Size(779, 23);
             this.label2.TabIndex = 3;
             this.label2.Text = "Description:";
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 77);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(9, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1558, 44);
+            this.label3.Size = new System.Drawing.Size(779, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Title:";
             // 
             // newButton
             // 
-            this.newButton.Location = new System.Drawing.Point(18, 271);
-            this.newButton.Margin = new System.Windows.Forms.Padding(6);
+            this.newButton.Location = new System.Drawing.Point(9, 141);
             this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(450, 44);
+            this.newButton.Size = new System.Drawing.Size(225, 23);
             this.newButton.TabIndex = 5;
             this.newButton.Text = "New";
             this.newButton.UseVisualStyleBackColor = true;
@@ -102,10 +97,9 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(1412, 271);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(6);
+            this.saveButton.Location = new System.Drawing.Point(706, 141);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(450, 44);
+            this.saveButton.Size = new System.Drawing.Size(225, 23);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -113,10 +107,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(950, 271);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(6);
+            this.deleteButton.Location = new System.Drawing.Point(475, 141);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(450, 44);
+            this.deleteButton.Size = new System.Drawing.Size(225, 23);
             this.deleteButton.TabIndex = 7;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -124,10 +117,9 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(488, 271);
-            this.editButton.Margin = new System.Windows.Forms.Padding(6);
+            this.editButton.Location = new System.Drawing.Point(244, 141);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(450, 44);
+            this.editButton.Size = new System.Drawing.Size(225, 23);
             this.editButton.TabIndex = 8;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
@@ -138,21 +130,31 @@
             this.toDoListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.toDoListView.BackgroundColor = System.Drawing.Color.White;
             this.toDoListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.toDoListView.Location = new System.Drawing.Point(18, 327);
-            this.toDoListView.Margin = new System.Windows.Forms.Padding(6);
+            this.toDoListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvChecked});
+            this.toDoListView.Location = new System.Drawing.Point(9, 170);
             this.toDoListView.Name = "toDoListView";
             this.toDoListView.RowHeadersWidth = 82;
             this.toDoListView.RowTemplate.Height = 30;
-            this.toDoListView.Size = new System.Drawing.Size(1844, 515);
+            this.toDoListView.Size = new System.Drawing.Size(922, 268);
             this.toDoListView.TabIndex = 9;
+            this.toDoListView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toDoListView_CellClick);
             this.toDoListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toDoListView_CellContentClick);
+            this.toDoListView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.toDoListView_CellFormatting);
+            // 
+            // dgvChecked
+            // 
+            this.dgvChecked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvChecked.HeaderText = "";
+            this.dgvChecked.MinimumWidth = 30;
+            this.dgvChecked.Name = "dgvChecked";
+            this.dgvChecked.Width = 30;
             // 
             // ToDoList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1886, 865);
+            this.ClientSize = new System.Drawing.Size(941, 365);
             this.Controls.Add(this.toDoListView);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
@@ -163,7 +165,6 @@
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ToDoList";
             this.Text = "To Do List";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -185,6 +186,7 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.DataGridView toDoListView;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dgvChecked;
     }
 }
 
