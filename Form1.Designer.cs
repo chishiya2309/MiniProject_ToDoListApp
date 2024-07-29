@@ -1,4 +1,6 @@
-﻿namespace To_Do_List_App
+﻿using System.Drawing.Text;
+
+namespace To_Do_List_App
 {
     partial class ToDoList
     {
@@ -92,6 +94,7 @@
             this.newButton.TabIndex = 5;
             this.newButton.Text = "New";
             this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // saveButton
             // 
@@ -167,6 +170,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.DataGridView toDoListView;
+
+        // add 
+
     }
 }
 

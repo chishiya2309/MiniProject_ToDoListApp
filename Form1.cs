@@ -19,12 +19,29 @@ namespace To_Do_List_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            toDoListView.Columns.Add("Title", "Title");
+            toDoListView.Columns.Add("Description", "Description");
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            string title = titleTextBox.Text;
+            string description = descriptionTextBox.Text;
+
+            if (!string.IsNullOrWhiteSpace(title) && !string.IsNullOrWhiteSpace(description))
+            {
+                toDoListView.Rows.Add(title, description);
+                titleTextBox.Clear();
+                descriptionTextBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please enter both title and description.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
