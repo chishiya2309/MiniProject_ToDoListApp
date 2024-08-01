@@ -38,7 +38,9 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.toDoListView = new System.Windows.Forms.DataGridView();
-            this.dgvChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.toDoListView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@
             // 
             // newButton
             // 
-            this.newButton.Location = new System.Drawing.Point(9, 141);
+            this.newButton.Location = new System.Drawing.Point(7, 180);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(225, 23);
             this.newButton.TabIndex = 5;
@@ -97,7 +99,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(706, 141);
+            this.saveButton.Location = new System.Drawing.Point(704, 180);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(225, 23);
             this.saveButton.TabIndex = 6;
@@ -107,7 +109,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(475, 141);
+            this.deleteButton.Location = new System.Drawing.Point(473, 180);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(225, 23);
             this.deleteButton.TabIndex = 7;
@@ -117,7 +119,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(244, 141);
+            this.editButton.Location = new System.Drawing.Point(242, 180);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(225, 23);
             this.editButton.TabIndex = 8;
@@ -130,31 +132,51 @@
             this.toDoListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.toDoListView.BackgroundColor = System.Drawing.Color.White;
             this.toDoListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.toDoListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvChecked});
-            this.toDoListView.Location = new System.Drawing.Point(9, 170);
+            this.toDoListView.Location = new System.Drawing.Point(7, 209);
             this.toDoListView.Name = "toDoListView";
             this.toDoListView.RowHeadersWidth = 82;
             this.toDoListView.RowTemplate.Height = 30;
-            this.toDoListView.Size = new System.Drawing.Size(922, 268);
+            this.toDoListView.Size = new System.Drawing.Size(922, 302);
             this.toDoListView.TabIndex = 9;
             this.toDoListView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toDoListView_CellClick);
             this.toDoListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toDoListView_CellContentClick);
             this.toDoListView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.toDoListView_CellFormatting);
             // 
-            // dgvChecked
+            // label4
             // 
-            this.dgvChecked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvChecked.HeaderText = "";
-            this.dgvChecked.MinimumWidth = 30;
-            this.dgvChecked.Name = "dgvChecked";
-            this.dgvChecked.Width = 30;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(779, 23);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Deadline:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(80, 145);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 11;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 7, 30, 22, 22, 13, 0);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(286, 145);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 12;
+            this.dateTimePicker2.Value = new System.DateTime(2024, 7, 30, 22, 22, 13, 0);
             // 
             // ToDoList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(941, 365);
+            this.ClientSize = new System.Drawing.Size(941, 523);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.toDoListView);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
@@ -186,7 +208,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.DataGridView toDoListView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dgvChecked;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 

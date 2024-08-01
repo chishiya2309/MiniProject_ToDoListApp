@@ -19,10 +19,16 @@ namespace To_Do_List_App
 
         DataTable dt = new DataTable();
         bool isEditing = false;
+        
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            dt.Columns.Add("Checked", typeof(bool));
             dt.Columns.Add("Title");
             dt.Columns.Add("Description");
+            dt.Columns.Add("Day set",typeof(DateTime));
+            dt.Columns.Add("Deadline", typeof(DateTime));
+
 
             toDoListView.DataSource = dt;
         }
@@ -35,8 +41,10 @@ namespace To_Do_List_App
         private void editButton_Click(object sender, EventArgs e)
         {
             isEditing = true;
-            titleTextBox.Text = dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[0].ToString();
-            descriptionTextBox.Text = dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[1].ToString();
+            titleTextBox.Text = dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[1].ToString();
+            descriptionTextBox.Text = dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[2].ToString();
+            dateTimePicker1.Value = (DateTime)dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[4];
+            dateTimePicker2.Value = (DateTime)dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[4];
         }
 
         private void toDoListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,10 +77,17 @@ namespace To_Do_List_App
             {
                    dt.Rows[toDoListView.CurrentCell.RowIndex]["Title"] = titleTextBox.Text;
                    dt.Rows[toDoListView.CurrentCell.RowIndex]["Description"] = descriptionTextBox.Text;
+                   dt.Rows[toDoListView.CurrentCell.RowIndex]["Deadline"] = 
+                    new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day,
+                              dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, 0);
+
+
             }
             else
             {
-                dt.Rows.Add(titleTextBox.Text, descriptionTextBox.Text);
+                dt.Rows.Add(false, titleTextBox.Text, descriptionTextBox.Text,DateTime.Now, 
+                    new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day,
+                              dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, 0));
             }
             titleTextBox.Text = "";
             descriptionTextBox.Text = "";
@@ -86,18 +101,33 @@ namespace To_Do_List_App
 
         private void toDoListView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            foreach(DataGridViewRow r in toDoListView.Rows)
+            toDoListView.Columns["Checked"].HeaderText = "";
+            toDoListView.Columns["Checked"].Width = 30;
+            dateTimePicker2.CustomFormat = "HH:mm";
+            // toDoListView.Columns["Day set"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            foreach (DataGridViewRow r in toDoListView.Rows)
             {
                 bool isChecked = Convert.ToBoolean(r.Cells[0].Value);
-                if (isChecked == false)
+                DateTime time = Convert.ToDateTime(r.Cells[4].Value);
+
+                if (r.Cells[0].Value != null)
                 {
-                    r.DefaultCellStyle.BackColor = Color.White;
-                    r.DefaultCellStyle.ForeColor = Color.Black;
-                }
-                else if (isChecked == true)
-                {
-                    r.DefaultCellStyle.BackColor = Color.Green;
-                    r.DefaultCellStyle.ForeColor = Color.Black;
+                    if (isChecked == true)
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Green;
+                        r.DefaultCellStyle.ForeColor = Color.Black;
+                    }
+                    else if (DateTime.Now > time)
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                        r.DefaultCellStyle.ForeColor = Color.White;
+                    }
+
+                    else 
+                    {
+                        r.DefaultCellStyle.BackColor = Color.White;
+                        r.DefaultCellStyle.ForeColor = Color.Black;
+                    }
                 }
             }    
         }
