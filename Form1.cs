@@ -20,6 +20,7 @@ namespace To_Do_List_App
         DataTable dt = new DataTable();
         bool isEditing = false;
         
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -28,8 +29,9 @@ namespace To_Do_List_App
             dt.Columns.Add("Description");
             dt.Columns.Add("Day set",typeof(DateTime));
             dt.Columns.Add("Deadline", typeof(DateTime));
+            dt.Columns.Add("Priority", typeof(bool));
 
-
+            dt.DefaultView.Sort = "Priority DESC, Deadline ASC";
             toDoListView.DataSource = dt;
         }
 
@@ -85,9 +87,17 @@ namespace To_Do_List_App
             }
             else
             {
-                dt.Rows.Add(false, titleTextBox.Text, descriptionTextBox.Text,DateTime.Now, 
+                if (!string.IsNullOrWhiteSpace(titleTextBox.Text) && !string.IsNullOrWhiteSpace(descriptionTextBox.Text))
+                {
+                    dt.Rows.Add(false, titleTextBox.Text, descriptionTextBox.Text, DateTime.Now,
                     new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day,
-                              dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, 0));
+                              dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, 0), false);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Please enter both title and description.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             titleTextBox.Text = "";
             descriptionTextBox.Text = "";
@@ -104,6 +114,9 @@ namespace To_Do_List_App
             toDoListView.Columns["Checked"].HeaderText = "";
             toDoListView.Columns["Checked"].Width = 30;
             dateTimePicker2.CustomFormat = "HH:mm";
+            toDoListView.Columns["Priority"].HeaderText = "Mark";
+            toDoListView.Columns["Priority"].Width = 50;
+            
             // toDoListView.Columns["Day set"].DefaultCellStyle.Format = "dd/MM/yyyy";
             foreach (DataGridViewRow r in toDoListView.Rows)
             {
