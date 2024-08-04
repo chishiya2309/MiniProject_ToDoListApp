@@ -156,7 +156,7 @@ namespace To_Do_List_App
         private void toDoListView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             toDoListView.Columns["Checked"].HeaderText = "Done";
-            toDoListView.Columns["Checked"].Width = 30;
+            toDoListView.Columns["Checked"].Width = 50;
             dateTimePicker2.CustomFormat = "HH:mm";
             toDoListView.Columns["Priority"].HeaderText = "Mark";
             toDoListView.Columns["Priority"].Width = 50;
