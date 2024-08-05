@@ -48,6 +48,7 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 2);
             this.label1.Name = "label1";
@@ -158,18 +159,18 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(80, 145);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(162, 20);
             this.dateTimePicker1.TabIndex = 11;
-            this.dateTimePicker1.Value = new System.DateTime(2024, 7, 30, 22, 22, 13, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2024, 8, 4, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(286, 145);
+            this.dateTimePicker2.Location = new System.Drawing.Point(248, 145);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(94, 20);
             this.dateTimePicker2.TabIndex = 12;
-            this.dateTimePicker2.Value = new System.DateTime(2024, 7, 30, 22, 22, 13, 0);
+            this.dateTimePicker2.Value = new System.DateTime(2024, 8, 4, 0, 0, 0, 0);
             // 
             // pictureBox1
             // 
@@ -185,7 +186,7 @@
             // ToDoList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(941, 523);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker2);

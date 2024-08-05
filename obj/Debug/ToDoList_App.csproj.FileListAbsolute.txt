@@ -2,9 +2,9 @@ C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\bin\Debug\To Do List A
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\bin\Debug\To Do List App.exe
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\bin\Debug\To Do List App.pdb
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\ToDoList_App.csproj.AssemblyReference.cache
-C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\To_Do_List_App.ToDoList.resources
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\To_Do_List_App.Properties.Resources.resources
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\ToDoList_App.csproj.GenerateResource.cache
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\ToDoList_App.csproj.CoreCompileInputs.cache
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\To Do List App.exe
 C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\To Do List App.pdb
+C:\Users\laptoptv.vn\source\repos\MiniProject_ToDoListApp\obj\Debug\To_Do_List_App.ToDoList.resources
