@@ -56,6 +56,7 @@ namespace To_Do_List_App
             descriptionTextBox.Text = dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[2].ToString();
             dateTimePicker1.Value = (DateTime)dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[4];
             dateTimePicker2.Value = (DateTime)dt.Rows[toDoListView.CurrentCell.RowIndex].ItemArray[4];
+            hasShownNotification[titleTextBox.Text] = false;
         }
 
         private void toDoListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -153,6 +154,8 @@ namespace To_Do_List_App
             
         }
 
+        private Dictionary<string, bool> hasShownNotification = new Dictionary<string, bool>();
+
         private void toDoListView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             toDoListView.Columns["Checked"].HeaderText = "Done";
@@ -160,13 +163,14 @@ namespace To_Do_List_App
             dateTimePicker2.CustomFormat = "HH:mm";
             toDoListView.Columns["Priority"].HeaderText = "Mark";
             toDoListView.Columns["Priority"].Width = 50;
-            
+            toDoListView.Columns["Deadline"].HeaderText = "Date & Time";
 
             // toDoListView.Columns["Day set"].DefaultCellStyle.Format = "dd/MM/yyyy";
             foreach (DataGridViewRow r in toDoListView.Rows)
             {
                 bool isChecked = Convert.ToBoolean(r.Cells[0].Value);
                 DateTime time = Convert.ToDateTime(r.Cells[4].Value);
+                string taskKey = Convert.ToString(r.Cells[1].Value);
 
                 if (r.Cells[0].Value != null)
                 {
@@ -179,6 +183,11 @@ namespace To_Do_List_App
                     {
                         r.DefaultCellStyle.BackColor = Color.Red;
                         r.DefaultCellStyle.ForeColor = Color.White;
+                        if (!hasShownNotification.ContainsKey(taskKey) || !hasShownNotification[taskKey])
+                        {
+                            notifyIcon1.ShowBalloonTip(1000, r.Cells[1].Value.ToString(), r.Cells[2].Value.ToString() + "/n Click this to know more....", ToolTipIcon.Info);
+                            hasShownNotification[taskKey] = true; // Đánh dấu task đã được thông báo
+                        }
                     }
 
                     else 
@@ -223,6 +232,23 @@ namespace To_Do_List_App
             }
         }
 
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
 
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Kiểm tra xem window đang ẩn hay không
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                // Nếu ẩn, khôi phục lại cửa sổ
+                this.WindowState = FormWindowState.Normal;
+                this.Show();
+            }
+
+            
+            this.Focus();
+        }
     }
 }
